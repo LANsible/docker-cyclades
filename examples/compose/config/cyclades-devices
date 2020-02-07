@@ -1,0 +1,2 @@
+# See https://linux.die.net/man/5/cyclades-devices
+/dev/ctty01:prts:192.168.1.10:23:0:rtelnet:

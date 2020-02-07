@@ -1,0 +1,11 @@
+---
+  version: "3"
+  services:
+    cyclades:
+      container_name: cyclades
+      image: lansible/cyclades:latest
+      read_only: true
+      privileged: true
+      volumes:
+        - ./etc:/etc
+      restart: always
