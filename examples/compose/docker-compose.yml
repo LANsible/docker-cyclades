@@ -1,11 +1,24 @@
 ---
-  version: "3"
-  services:
-    cyclades:
-      container_name: cyclades
-      image: lansible/cyclades:latest
-      read_only: true
-      privileged: true
-      volumes:
-        - ./etc:/etc
-      restart: always
+version: "3"
+services:
+  ttynvt:
+    container_name: cyclades
+    # image: lansible/ttynvt:latest
+    image: cyclades
+    command: start
+    # read_only: true
+    restart: always
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - '/dev/cuse:/dev/cuse'
+
+  # # Example connection
+  # serial:
+  #   container_name: serial
+  #   image: alpine
+  #   command: microcom -s 9600 /dev/ttyNVT0
+  #   devices:
+  #     - /dev/ctty01:/dev/ctty01
+  #   depends_on:
+  #     - ttynvt
